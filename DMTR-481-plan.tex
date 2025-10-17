@@ -1,38 +1,148 @@
-\documentclass[DM,lsstdraft,toc]{lsstdoc}
+% generated from JIRA project LVV
+% using template at /opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/docsteady/templates/tpnoresult.latex.jinja2.
+% using docsteady version 3.0.8
+% Please do not edit -- update information in Jira instead
+\documentclass[DM,lsstdraft,STR,toc]{lsstdoc}
 \usepackage{geometry}
 \usepackage{longtable,booktabs}
 \usepackage{enumitem}
 \usepackage{arydshln}
+\usepackage{attachfile}
+\usepackage{array}
+\usepackage{dashrule}
 
-\input{meta.tex}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 
+\input meta.tex
+
+\newcommand{\attachmentsUrl}{https://github.com/\gitorg/\lsstDocType-\lsstDocNum/blob/\gitref/attachments}
 \providecommand{\tightlist}{
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
+\setcounter{tocdepth}{4}
+
 \begin{document}
 
-\def\milestoneName{LDM-503-17a: Science Pipelines Final Release}
-\def\milestoneId{LVV-P83}
-\def\product{Data Management}
+\def\milestoneName{Science Pipelines Final Release}
+\def\milestoneId{LDM-503-17a}
+\def\product{Software Products}
 
 \setDocCompact{true}
 
-\title{LVV-P83 LDM-503-17a: Science Pipelines Final Release Test Plan }
+\title{LDM-503-17a: Science Pipelines Final Release Test Plan }
 \setDocRef{\lsstDocType-\lsstDocNum}
-\date{\vcsDate}
-\author{Yusra AlSayyad}
+\date{ 2025-10-17 }
+\author{ Yusra AlSayyad }
 
 \input{history_and_info.tex}
 
+
 \setDocAbstract{
-This is a stub test report created from a template.
-The content is being prepared.
+This is the test plan for
+\textbf{ Science Pipelines Final Release} (LDM-503-17a),
+an LSST milestone pertaining to the Data Management Subsystem.\\
+This document is based on content automatically extracted from the Jira test database on \docDate.
+The most recent change to the document repository was on \vcsDate.
 }
+
 
 \maketitle
 
 \section{Introduction}
-Use the GitHub Actions workflow ``docgen from Jira'' to generate this document's content from Jira.
+\label{sect:intro}
+
+
+\subsection{Objectives}
+\label{sect:objectives}
+
+ This test plan checks for the successful release of ~LSST Science
+Pipelines version 29.0.0. \hspace{0pt} Version 29.0.0 was the
+\hspace{0pt}version used ~for Data \hspace{0pt}Preview 1 and was the
+final release made during construction.~\\
+\strut \\
+It will demonstrate that:\\
+
+\begin{itemize}
+\tightlist
+\item
+  The release has been tagged, built and made available through standard
+  distribution channels;
+\item
+  Release documentation, including release notes and a characterization
+  report, are available on the Pipelines documentation website
+  (https://pipelines.lsst.io/);
+\item
+  An end-user can follow standard instructions to install the release
+  onto some representative system;
+\item
+  The release is installed into the ``shared stack'' on the rubin-devl
+  shared developer systems at the Rubin Data Facility;
+\item
+  The pipelines\_check test package executes successfully in the context
+  of the release.
+\end{itemize}
+
+This test plan does not, in itself, verify the scientific integrity or
+algorithmic correctness of the release, beyond checking that defined
+procedures for checking basic correctness and characterizing algorithmic
+performance have been followed.\\
+\strut \\
+
+\subsection{Scope}\label{scope}
+
+\hfill\break
+\hfill\break
+The overall strategy for testing and verification within Rubin Data
+Management is described in \citeds{LDM-503}.\\
+This test plan specifically verifies successful completion of milestone
+LDM-503-16a, which refers to the Fall 2022 release of the LSST Science
+Pipelines (and Spring 2023 verification of such).
+
+
+
+\subsection{System Overview}
+\label{sect:systemoverview}
+
+ The LSST Science Pipelines comprise the scientific algorithms that will
+be used to process data for the Rubin Observatory Legacy Survey of Space
+and Time (Rubin\textquotesingle s LSST), ~arranged into executable
+pipelines by means of the LSST ``task'' framework. They also include
+execution middleware that is common across execution environments (for
+example, the ``Data Butler'' I/O abstraction is included, but schedulers
+or workflow management for specific clusters is not), and ``camera
+packages'', which adapt and configure the algorithms for use with
+specific instrumentation.\\
+\strut \\
+
+\subsection{\texorpdfstring{Applicable Documents\\
+}{Applicable Documents }}\label{applicable-documents}
+
+\hfill\break
+\citeds{LDM-503} Data Management Test Plan\\
+\citeds{LDM-151} Data Management Science Pipelines Design\\
+\citeds{LSE-61} Data Management System Requirements
+
+
+\subsection{Document Overview}
+\label{sect:docoverview}
+
+This document was generated from Jira, obtaining the relevant information from the
+\href{https://rubinobs.atlassian.net/projects/LVV?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page\#!/v2/testPlan/LVV-P83}{LVV-P83}
+~Jira Test Plan and related Test Cycles (
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCycle/LVV-R268}{LVV-R268}
+).
+
+Section \ref{sect:intro} provides an overview of the test campaign, the system under test (\product{}),
+the applicable documentation, and explains how this document is organized.
+Section \ref{sect:testplan} provides additional information about the test plan, like for example the configuration
+used for this test or related documentation.
+Section \ref{sect:personnel} describes the necessary roles and lists the individuals assigned to them.
+
+Section \ref{sect:overview} provides a summary of the test results, including an overview in Table \ref{table:summary},
+an overall assessment statement and suggestions for possible improvements.
+Section \ref{sect:detailedtestresults} provides detailed results for each step in each test case.
+
+The current status of test plan \href{https://rubinobs.atlassian.net/projects/LVV?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page\#!/v2/testPlan/LVV-P83}{LVV-P83} in Jira is \textbf{ Completed }.
 
 \subsection{References}
 \label{sect:references}
@@ -40,5 +150,258 @@ Use the GitHub Actions workflow ``docgen from Jira'' to generate this document's
 \bibliography{lsst,refs,books,refs_ads,local}
 
 
-\input{appendix}
+\newpage
+\section{Test Plan Details}
+\label{sect:testplan}
+
+
+\subsection{Data Collection}
+
+  Observing is not required for this test campaign.
+
+\subsection{Verification Environment}
+\label{sect:hwconf}
+  Several of the tests described in this plan are agnostic of environment:
+they involve checking that certain content has been properly published.
+This can be performed from any internet-connected system with a web
+browser, and will, in this case, likely be executed from the
+tester\textquotesingle s laptop.\\
+\strut \\
+Where tests require installation or execution of specific Science
+Pipelines components, this will be carried out on the shared developer
+infrastructure at the Rubin Data Facility. This infrastructure provides
+a number of powerful systems accessible to Rubin developers.
+
+  \subsection{Entry Criteria}
+  None
+
+  \subsection{Exit Criteria}
+  None
+
+
+\subsection{Related Documentation}
+
+Docushare collection where additional relevant documentation can be found:
+
+\begin{itemize}
+\item None
+\end{itemize}
+
+
+
+\subsection{PMCS Activity}
+
+Primavera milestones related to the test campaign:
+None
+
+
+\newpage
+\section{Personnel}
+\label{sect:personnel}
+
+The personnel involved in the test campaign is shown in the following table.
+
+{\small
+\begin{longtable}{p{3cm}p{3cm}p{3cm}p{6cm}}
+\hline
+\multicolumn{2}{r}{T. Plan \href{https://rubinobs.atlassian.net/projects/LVV?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page\#!/v2/testPlan/LVV-P83}{LVV-P83} owner:} &
+\multicolumn{2}{l}{\textbf{ Yusra AlSayyad } }\\\hline
+\multicolumn{2}{r}{T. Cycle \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCycle/LVV-R268}{LVV-R268} owner:} &
+\multicolumn{2}{l}{\textbf{
+Yusra AlSayyad }
+} \\\hline
+\textbf{Test Cases} & \textbf{Assigned to} & \textbf{Executed by} & \textbf{Additional Test Personnel} \\ \hline
+\href{https://rubinobs.atlassian.net/projects/LVV?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page\#!/v2/testCase/LVV-E3129}{LVV-E3129}
+& {\small Yusra AlSayyad } & {\small Yusra AlSayyad } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://rubinobs.atlassian.net/projects/LVV?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page\#!/v2/testCase/LVV-E3130}{LVV-E3130}
+& {\small Yusra AlSayyad } & {\small Yusra AlSayyad } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://rubinobs.atlassian.net/projects/LVV?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page\#!/v2/testCase/LVV-E3131}{LVV-E3131}
+& {\small Yusra AlSayyad } & {\small Yusra AlSayyad } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\end{longtable}
+}
+
+\newpage
+
+\section{Test Campaign Overview}
+\label{sect:overview}
+
+\subsection{Summary}
+\label{sect:summarytable}
+
+{\small
+\begin{longtable}{p{2cm}cp{2.3cm}p{8.6cm}p{2.3cm}}
+\toprule
+\multicolumn{2}{r}{ T. Plan \href{https://rubinobs.atlassian.net/projects/LVV?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page\#!/v2/testPlan/LVV-P83}{LVV-P83}:} &
+\multicolumn{2}{p{10.9cm}}{\textbf{ LDM-503-17a: Science Pipelines Final Release }} & Completed \\\hline
+\multicolumn{2}{r}{ T. Cycle \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCycle/LVV-R268}{LVV-R268}:} &
+\multicolumn{2}{p{10.9cm}}{\textbf{ LDM-503-17a: Science Pipelines Final Release }} & Done \\\hline
+\textbf{Test Cases} &  \textbf{Ver.}  \\\toprule
+\href{https://rubinobs.atlassian.net/projects/LVV?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page\#!/v2/testCase/LVV-E3129}{LVV-E3129}
+&  1.0(d)
+\\
+\href{https://rubinobs.atlassian.net/projects/LVV?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page\#!/v2/testCase/LVV-E3130}{LVV-E3130}
+&  1.0(d)
+\\
+\href{https://rubinobs.atlassian.net/projects/LVV?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page\#!/v2/testCase/LVV-E3131}{LVV-E3131}
+&  1.0(d)
+\\
+\\\hline
+\caption{Test Campaign Summary}
+\label{table:summary}
+\end{longtable}
+}
+
+\subsection{Overall Assessment}
+\label{sect:overallassessment}
+
+All tests described in this plan were completed successfully. The
+lsstinstall method automatically found and installed the appropriate
+binaries of the LSST Science Pipelines v29.2.1 on the USDF developer
+hardware.
+
+\subsection{Recommended Improvements}
+\label{sect:recommendations}
+
+\newpage
+\section{Detailed Tests}
+\label{sect:detailedtests}
+
+\subsection{Test Cycle LVV-R268 }
+
+Open test cycle {\it \href{https://rubinobs.atlassian.net/projects/LVV?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page\#!/testPlayer/LVV-R268}{LDM-503-17a: Science Pipelines Final Release}} in Jira.
+
+Test Cycle name: LDM-503-17a: Science Pipelines Final Release\\
+Status: Done
+
+This test cycle describes tests performed on the Science Pipelines Fall
+2025 (v29.0.0) release, ensuring that the release is properly
+identified, documented, distributed, installable and tested.
+
+\subsubsection{Software Version/Baseline}
+A web browser is required for inspecting release artifacts published to
+the web.\\
+\strut \\
+Testing the software installation procedures, and demonstrating that the
+release\textquotesingle s integration tests can be executed
+successfully, require a supported operating system with the documented
+prerequisites of the release installed. This will be carried out on the
+''rubin-devl'' shared developer systems at the LSST Data Facility.\\
+\strut \\
+Science Pipelines prerequisites are documented
+at~\href{https://pipelines.lsst.io/}{pipelines.lsst.io}; all of these
+must be installed.\\
+\strut \\
+It is possible that the software release will involve a reorganization
+of documentation describing prerequisites; in this case, the
+documentation corresponding to the new release must be consulted.
+
+\subsubsection{Configuration}
+No specific configuration is required beyond the availability of test
+systems with the prerequisite software, described above, installed.
+
+\subsubsection{Test Cases in LVV-R268 Test Cycle}
+
+\paragraph{ LVV-E3129 - Installation of the LSST Science Pipelines Payloads }\mbox{}\\
+
+Version \textbf{1.0(d)}.
+Open  \href{https://rubinobs.atlassian.net/projects/LVV?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page\#!/v2/testCase/LVV-E3129}{\textit{ LVV-E3129 } }
+test case in Jira.
+
+This test will check that:
+
+\begin{itemize}
+\tightlist
+\item
+  The Alert Production Pipeline payload is available for installation
+  from documented channels;
+\item
+  The Data Release Production Pipeline payload is available for
+  installation from documented channels;
+\item
+  The Calibration Products Production Pipeline payload is available for
+  installation from documented channels;
+\item
+  These payloads can be installed on systems at the LSST Data Facility
+  following available documentation;
+\item
+  The installed pipeline payloads are capable of successfully executing
+  basic integration tests.
+\end{itemize}
+
+Note that this test assumes packaging of the Science Pipelines software,
+in which all the above payloads are represented by a single
+``meta-package'', lsst\_distrib.
+
+\textbf{ Preconditions}:\\
+None
+
+Final comment:\\None
+
+
+Detailed steps :
+
+\paragraph{ LVV-E3130 - Science Pipelines available on developer hardware }\mbox{}\\
+
+Version \textbf{1.0(d)}.
+Open  \href{https://rubinobs.atlassian.net/projects/LVV?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page\#!/v2/testCase/LVV-E3130}{\textit{ LVV-E3130 } }
+test case in Jira.
+
+This test will check that a given release of the LSST Science Pipelines
+is available for use in a ``shared stack'' on developer infrastructure.
+
+\textbf{ Preconditions}:\\
+None
+
+Final comment:\\None
+
+
+Detailed steps :
+
+\paragraph{ LVV-E3131 - Science Pipelines Release Documentation }\mbox{}\\
+
+Version \textbf{1.0(d)}.
+Open  \href{https://rubinobs.atlassian.net/projects/LVV?selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.kanoah.test-manager__main-project-page\#!/v2/testCase/LVV-E3131}{\textit{ LVV-E3131 } }
+test case in Jira.
+
+This test will check:
+
+\begin{itemize}
+\tightlist
+\item
+  That a particular Science Pipelines release is adequately described by
+  documentation at the https://pipelines.lsst.io/ site;
+\item
+  That the Science Pipelines release is accompanied by a
+  characterization report which describes its scientific performance.
+\end{itemize}
+
+\textbf{ Preconditions}:\\
+None
+
+Final comment:\\None
+
+
+Detailed steps :
+
+
+
+\input{appendix.tex}
 \end{document}
